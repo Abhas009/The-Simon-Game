@@ -11,7 +11,7 @@ var gameStarted = false;
 // Listen for keydown events on the document
 $(document).keydown(function(event) {
   if (!gameStarted) {
-    $("#level-title").html("Level" + level);
+    $("#level-title").html("Level " + level);
     nextSequence();
     gameStarted = true;
   }
@@ -22,6 +22,7 @@ $(".btn").on("click",function()
    var userChosenColour = $(this).attr("id");
   userClickedPattern.push(userChosenColour);
   playSound(userChosenColour);
+  animatePress(userChosenColour);
 
 })
 
@@ -36,6 +37,9 @@ function nextSequence()
 
   $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
   playSound(randomChosenColour);
+  level += 1;
+  $("#level-title").html("Level " + level);
+
 }
 
 
