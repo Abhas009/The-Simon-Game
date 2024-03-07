@@ -118,3 +118,30 @@ function startOver()
   gameStarted = false;
   userClickedPattern = [];
 }
+
+
+
+
+
+
+
+
+
+/*
+Even though the userClickedPattern array is reset at the beginning of each new sequence, we still need to compare the lengths of userClickedPattern and gamePattern to determine if the user has clicked all the colors for the current sequence.
+
+Here's why this check is necessary:
+
+Checking Sequence Completion: When the user clicks on a color, it is added to the userClickedPattern array. At each click, we need to check if the length of userClickedPattern matches the length of gamePattern to see if the user has clicked all the colors for the current sequence. If the lengths match, it means the user has completed the sequence and clicked all the colors in the correct order.
+
+Advancing to Next Level: If the user has completed the sequence (i.e., userClickedPattern.length === gamePattern.length), we advance to the next level by generating a new sequence (nextSequence()). This check ensures that the user cannot proceed to the next level until they have completed the current sequence.
+
+Ensuring Correctness: The check ensures that the user has clicked all the colors in the correct order before advancing to the next level. If the lengths do not match, it means the user has not completed the sequence and has clicked a color out of order, triggering a game over condition.
+
+In summary, the if (userClickedPattern.length === gamePattern.length) condition is crucial for determining when the user has completed a sequence and ensuring that the game progresses correctly to the next level.
+
+
+
+
+
+*/
